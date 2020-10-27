@@ -1,3 +1,5 @@
+"""Grow a tree in an Ecosystem object."""
+
 import numpy as np
 import math
 
@@ -21,6 +23,8 @@ class Branch:
         self.thresh = .5
 
 class Ecosystem:
+    """A must for most trees. Set up your Ecosystem and then use grow() and show() methods to create your tree.\n\nParameters:\n-------------\nsize : array_like\n\tThe shape of the character grid, equalized to account for characters being taller than they are wide. Default is [50,40].\n\nReturns:\n------------\nEcosystem object, with grow() and show() methods.\n"""
+
     def __init__(self, size=[50,40]):
         self.w = size[0]*2
         self.h = size[1]
@@ -34,6 +38,8 @@ class Ecosystem:
             self.plot[coor[1], coor[0]] = 1
         
     def show(self, material='$', background='`'):
+        """Shows the grown tree. Can be used to experiment with characters without changing the shape of the tree. Must be called after grow() or grow_show()!\n\nParameters:\n-------------\nmaterial : char\n\tThe character used to fill the tree. Must be a single character. Default is '$'.\nbackground : char\n\tThe character used to fill the background of the Ecosystem. Default is '`'.\n\nReturns:\n------------\nNothing. Simply prints tree.\n"""
+
         if isinstance(self.plot, str):
             print(self.plot)
         else:
@@ -49,6 +55,8 @@ class Ecosystem:
             print(whole)
             
     def grow(self, trunk=3, n_iter=40, density=9, ang_mean=35, ang_range=5):
+        """Grows a tree, starting at the bottom center of the grid.\n\nParameters:\n-------------\ntrunk : int\n\tThe starting radius of the trunk. Default is 3.\nn_iter : int\n\tThe number of growth iterations. Default is 40.\ndensity : int\n\tThe rate at which new branches form. Lower numbers are denser. Default is 9, which means new branches form every 9 growth iterations.\nang_mean : int\n\tThe mean angle of branch splits. Default is 35.\nang_range : int\n\tThe range, above and below ang_mean, of angle possibilities. A higher range means a more unpredictable tree. Default is 5.\n\nReturns:\n------------\nNothing. View the grown tree with show().\n"""
+
         self.plot = np.full(shape=(self.h, self.w), fill_value=0)
         branches = [Branch(center=[self.w/4, self.h], width=trunk, direction=[.001,-7])]
         
@@ -90,5 +98,7 @@ class Ecosystem:
                 br.width *= .97
                 
     def grow_show(self, trunk=3, n_iter=40, density=9, ang_mean=35, ang_range=5, material='$', background='`'):
+        """Combines grow() and show() methods, using the same parameters.\n"""
+
         self.grow(trunk, n_iter, density, ang_mean, ang_range)
         self.show(material, background)
