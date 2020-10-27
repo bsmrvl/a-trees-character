@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="trees-character-bsmrvl", # Replace with your own username
-    version="0.0.3",
+    version="0.0.4",
     author="bsmrvl",
     author_email="ben.j.somerville@icloud.com",
     description="Grow trees",
@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/bsmrvl/a-trees-character",
     packages=setuptools.find_packages(),
-    install_requires=['numpy'],
+    install_requires=['numpy','IPython'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
