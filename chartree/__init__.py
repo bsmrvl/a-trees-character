@@ -1,1 +1,1 @@
-from tree import Ecosystem
+from chartree.tree import Ecosystem
