@@ -6,9 +6,12 @@ Grow your own trees on a monospace grid. Choose the material (unicode) for your 
 import chartree as ct
 w = ct.Ecosystem(material='7', background='.')
 
-# Grows a new tree each time.
+# Grows a new tree, different each time.
 w.grow(n_iter=50, ang_mean=40, ang_range=10)
 
 # Shows current tree. Can be used to experiment with materials.
 w.show(material='#', background='i')
 ```
+
+![Example GIF](/example.gif)
+Format: ![Alt Text](url)
