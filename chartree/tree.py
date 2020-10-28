@@ -114,7 +114,7 @@ Nothing. Simply prints tree.
             clear_output(wait=True)
             print(whole)
             
-    def grow(self, trunk=3, n_iter=40, density=9, ang_mean=35, ang_range=5, watch=True, speed=.04):
+    def grow(self, trunk=3, n_iter=40, density=9, ang_mean=35, ang_range=5, watch=True, speed=25):
         """Grows a tree, starting at the bottom center of the grid.
         
 Parameters:
@@ -131,8 +131,8 @@ ang_range : int
     The range, above and below ang_mean, of angle possibilities. A higher range means a more unpredictable tree. Default is 5.
 watch : bool
     Whether or not to watch the tree as it grows. Default True.
-speed : float
-    Speed at which the tree grows (only applies if watch=True). Default is .04, which means each growth iteration takes .04 seconds.
+speed : int/float
+    Speed at which the tree grows (only if watch=True), in iterations per second. Default is 25.
     
 Returns:
 ------------
@@ -145,7 +145,7 @@ Nothing. Change the materials of the grown tree with show().
                            width=trunk, 
                            direction=[.001,-7])]
         
-        for i in range(n_iter):
+        for i in range(1, n_iter+1):
             hard_length = len(branches)
             for br in branches:
                 if branches.index(br) == hard_length:
@@ -180,7 +180,7 @@ Nothing. Change the materials of the grown tree with show().
                 br.center = br.center + br.direction
                 br.width *= .97
             if watch:
-                sleep(speed)
+                sleep(1 / speed)
                 self.show()
 
     def __repr__(self):
