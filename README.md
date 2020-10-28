@@ -12,6 +12,6 @@ w.grow(n_iter=50, ang_mean=40, ang_range=10)
 ![Example GIF](/example.gif)
 
 ```python
-# Shows current tree. Can be used to experiment with materials.
+# Shows currently grown tree. Can be used to experiment with materials.
 w.show(material='#', background='i')
 ```
