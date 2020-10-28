@@ -1,4 +1,11 @@
-"""Grow a tree in an Ecosystem object."""
+"""Contains the Ecosystem class, which is used to grow trees.
+
+Example:
+----------
+import chartree as ct
+w = ct.Ecosystem(size=[50, 50], material='.', background='$')
+w.grow()
+"""
 
 import numpy as np
 from IPython.display import clear_output
@@ -35,21 +42,28 @@ class Branch:
         self.sign_proba = .5
 
 class Ecosystem:
-    """A must for most trees. Set up your Ecosystem and then use grow() and show() methods to create your tree.
+    """A must for most trees. Initiate your Ecosystem and then use grow() and show() methods to create your tree.
     
-    Parameters
-    ------------
-    size : array_like
-        The shape of the character grid, equalized to account for characters being taller than they are wide. Default is [50,40].
-    material : char
-        The character used to fill the tree. Must be a single character. Default is '$'
-    background : char
-        The character used to fill the background of the Ecosystem. Default is '`'.
-        
-    Returns
-    ------------
-    Ecosystem object, with grow() and show() methods.
-    """
+Parameters
+------------
+size : array_like
+    The shape of the character grid, equalized to account for characters being taller than they are wide. Default is [50,40].
+material : char
+    The character used to fill the tree. Must be a single character. Default is '$'
+background : char
+    The character used to fill the background of the Ecosystem. Default is '`'.
+
+Methods
+------------
+grow()
+    Grows a tree, differently every time.
+show()
+    Shows current tree, optionally changing materials (tree and background characters).
+    
+Returns
+------------
+Ecosystem object.
+"""
 
     def __init__(self, size=[50,40], material='$', background='`'):
         self.w = int(size[0] * 2)
@@ -69,17 +83,17 @@ class Ecosystem:
     def show(self, material=None, background=None):
         """Shows the grown tree. Can be used to experiment with characters without changing the shape of the tree. 
         
-        Parameters:
-        -------------
-        material : char
-            Optional. Changes the Ecosystem material.
-        background : char
-            Optional. Changes the Ecosystem background.
+Parameters:
+-------------
+material : char
+    Optional. Changes the Ecosystem material.
+background : char
+    Optional. Changes the Ecosystem background.
 
-        Returns:
-        ------------
-        Nothing. Simply prints tree.
-        """
+Returns:
+------------
+Nothing. Simply prints tree.
+"""
 
         if material is not None: 
             self.mat = str(material)
@@ -103,27 +117,27 @@ class Ecosystem:
     def grow(self, trunk=3, n_iter=40, density=9, ang_mean=35, ang_range=5, watch=True, speed=.04):
         """Grows a tree, starting at the bottom center of the grid.
         
-        Parameters:
-        -------------
-        trunk : int
-            The starting radius of the trunk. Default is 3.
-        n_iter : int
-            The number of growth iterations. Default is 40.
-        density : int
-            The rate at which new branches form. Lower numbers are denser. Default is 9, which means new branches form every 9 growth iterations.
-        ang_mean : int
-            The mean angle of branch splits. Default is 35.
-        ang_range : int
-            The range, above and below ang_mean, of angle possibilities. A higher range means a more unpredictable tree. Default is 5.
-        watch : bool
-            Whether or not to watch the tree as it grows. Default True.
-        speed : float
-            Speed at which the tree grows (only applies if watch=True). Default is .04, which means each growth iteration takes .04 seconds.
-            
-        Returns:
-        ------------
-        Nothing. View the grown tree with show().
-        """
+Parameters:
+-------------
+trunk : int
+    The starting radius of the trunk. Default is 3.
+n_iter : int
+    The number of growth iterations. Default is 40.
+density : int
+    The rate at which new branches form. Lower numbers are denser. Default is 9, which means new branches form every 9 growth iterations.
+ang_mean : int
+    The mean angle of branch splits. Default is 35.
+ang_range : int
+    The range, above and below ang_mean, of angle possibilities. A higher range means a more unpredictable tree. Default is 5.
+watch : bool
+    Whether or not to watch the tree as it grows. Default True.
+speed : float
+    Speed at which the tree grows (only applies if watch=True). Default is .04, which means each growth iteration takes .04 seconds.
+    
+Returns:
+------------
+Nothing. Change the materials of the grown tree with show().
+"""
 
         self.plot = np.full(shape=(self.h, self.w), fill_value=0)
 

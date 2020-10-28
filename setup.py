@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="trees-character-bsmrvl", # Replace with your own username
-    version="0.0.4",
+    name="chartree",
+    version="0.0.7",
     author="bsmrvl",
     author_email="ben.j.somerville@icloud.com",
     description="Grow trees",
