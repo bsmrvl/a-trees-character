@@ -14,4 +14,3 @@ w.show(material='#', background='i')
 ```
 
 ![Example GIF](/example.gif)
-Format: ![Alt Text](url)
