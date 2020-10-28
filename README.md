@@ -1,10 +1,13 @@
 # chartree
 Grow your own trees on a monospace grid. Choose the material (unicode) for your tree as well as the hue of the sky (also unicode). Heaps of other parameters as well!
 
+## Installation
+`pip install chartree`
+
 ## Example
 ```python
-import chartree as ct
-w = ct.Ecosystem(material='7', background='.')
+from chartree import Ecosystem
+w = Ecosystem(material='7', background='.')
 
 # Grows a new tree, different each time.
 w.grow(n_iter=50, ang_mean=40, ang_range=10)
