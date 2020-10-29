@@ -13,7 +13,11 @@ from math import pi
 from time import sleep
 
 def vec_from_angle(from_vec, angle):
-    from_vec = np.copy(from_vec)
+    from_vec = np.copy(from_vec).astype(float)
+    if from_vec[0] == 0:
+        from_vec[0] = 1e-10
+    if from_vec[1] == 0:
+        from_vec[1] = 1e-10
     angle = angle * pi / 180
     arc = np.arctan(from_vec[1] / from_vec[0])
     if from_vec[0] < 0:
