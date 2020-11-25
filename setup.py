@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="chartree",
-    version="0.0.8",
+    version="0.1.0",
     author="bsmrvl",
     author_email="ben.j.somerville@icloud.com",
     description="Grow trees",
